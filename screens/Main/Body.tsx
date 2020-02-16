@@ -23,28 +23,12 @@ const Body = () => {
     location: ""
   });
 
-  const setInputDate = (newValue: string) => {
-    if (newValue === inputs.date) {
+  const setInput = (type: keyof IInputsState) => (newValue: string) => {
+    if (newValue === inputs[type]) {
       return;
     }
 
-    setInputs({ ...inputs, date: newValue });
-  };
-
-  const setInputTime = (newValue: string) => {
-    if (newValue === inputs.date) {
-      return;
-    }
-
-    setInputs({ ...inputs, time: newValue });
-  };
-
-  const setInputLocation = (newValue: string) => {
-    if (newValue === inputs.date) {
-      return;
-    }
-
-    setInputs({ ...inputs, location: newValue });
+    setInputs({ ...inputs, [type]: newValue });
   };
 
   return (
@@ -54,11 +38,11 @@ const Body = () => {
 
         <Form
           inputDate={inputs.date}
-          onInputDateChange={setInputDate}
+          onInputDateChange={setInput("date")}
           inputTime={inputs.time}
-          onInputTimeChange={setInputTime}
+          onInputTimeChange={setInput("time")}
           inputLocation={inputs.location}
-          onInputLocationChange={setInputLocation}
+          onInputLocationChange={setInput("location")}
         />
       </div>
 
