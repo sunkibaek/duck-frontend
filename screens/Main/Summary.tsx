@@ -8,7 +8,7 @@ const Summary = () => (
     <div className="card">
       <ul className="list-group list-group-flush">
         <SummaryItem
-          name="DateTime"
+          name="Date time"
           description="When they are fed?"
           value="2020/02/16 09:50"
         />
@@ -21,14 +21,20 @@ const Summary = () => (
 
         <SummaryItem
           name="Place"
-          description="Where they are fed?"
+          description="Where are they fed?"
           value="Local pond"
         />
 
         <SummaryItem
           name="Food"
-          description="What they are fed?"
-          value="Animal - Fish (20 box)"
+          description="What are they fed?"
+          value={"Animal - Fish"}
+        />
+
+        <SummaryItem
+          name="Food quantity"
+          description="How much are they fed?"
+          value="20 boxes"
         />
       </ul>
     </div>
