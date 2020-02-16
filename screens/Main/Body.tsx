@@ -10,10 +10,42 @@ const dateTimeString = (inputDate: string, inputTime: string) => {
   return `${inputDate} ${inputTime}`;
 };
 
+interface IInputsState {
+  date: string;
+  time: string;
+  location: string;
+}
+
 const Body = () => {
-  const [inputDate, setInputDate] = useState("");
-  const [inputTime, setInputTime] = useState("");
-  const [inputLocation, setInputLocation] = useState("");
+  const [inputs, setInputs] = useState<IInputsState>({
+    date: "",
+    time: "",
+    location: ""
+  });
+
+  const setInputDate = (newValue: string) => {
+    if (newValue === inputs.date) {
+      return;
+    }
+
+    setInputs({ ...inputs, date: newValue });
+  };
+
+  const setInputTime = (newValue: string) => {
+    if (newValue === inputs.date) {
+      return;
+    }
+
+    setInputs({ ...inputs, time: newValue });
+  };
+
+  const setInputLocation = (newValue: string) => {
+    if (newValue === inputs.date) {
+      return;
+    }
+
+    setInputs({ ...inputs, location: newValue });
+  };
 
   return (
     <div className="row">
@@ -21,19 +53,19 @@ const Body = () => {
         <h4 className="mb-4">Duck Feed</h4>
 
         <Form
-          inputDate={inputDate}
+          inputDate={inputs.date}
           onInputDateChange={setInputDate}
-          inputTime={inputTime}
+          inputTime={inputs.time}
           onInputTimeChange={setInputTime}
-          inputLocation={inputLocation}
+          inputLocation={inputs.location}
           onInputLocationChange={setInputLocation}
         />
       </div>
 
       <div className="col-md-4">
         <Summary
-          date={dateTimeString(inputDate, inputTime)}
-          location={inputLocation}
+          date={dateTimeString(inputs.date, inputs.time)}
+          location={inputs.location}
         />
       </div>
     </div>
