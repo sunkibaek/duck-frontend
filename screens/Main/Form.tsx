@@ -1,23 +1,25 @@
 const Form = () => (
   <form>
-    <div className="form-group">
-      <label htmlFor="date">Date</label>
+    <div className="row mb-3">
+      <div className="col-md-6">
+        <label htmlFor="date">Date</label>
 
-      <input type="date" className="form-control" id="date" />
+        <input type="date" className="form-control" id="date" />
 
-      <small id="date" className="form-text text-muted">
-        The date you fed the duck.
-      </small>
-    </div>
+        <small id="date" className="form-text text-muted">
+          The date you fed the duck.
+        </small>
+      </div>
 
-    <div className="form-group">
-      <label htmlFor="time">Time</label>
+      <div className="col-md-6">
+        <label htmlFor="time">Time</label>
 
-      <input type="time" className="form-control" id="time" />
+        <input type="time" className="form-control" id="time" />
 
-      <small id="time" className="form-text text-muted">
-        The time you fed the duck (24 hr).
-      </small>
+        <small id="time" className="form-text text-muted">
+          The time you fed the duck (24 hr).
+        </small>
+      </div>
     </div>
 
     <div className="form-group">
