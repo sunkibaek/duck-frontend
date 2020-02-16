@@ -1,10 +1,36 @@
-const Form = () => (
+import React, { FC } from "react";
+
+interface IFormProps {
+  inputDate: string;
+  onInputDateChange: (value: string) => void;
+  inputTime: string;
+  onInputTimeChange: (value: string) => void;
+  inputLocation: string;
+  onInputLocationChange: (value: string) => void;
+}
+
+const Form: FC<IFormProps> = ({
+  inputDate,
+  onInputDateChange,
+  inputTime,
+  onInputTimeChange,
+  inputLocation,
+  onInputLocationChange
+}) => (
   <form>
     <div className="row mb-3">
       <div className="col-md-6">
         <label htmlFor="date">Date</label>
 
-        <input type="date" className="form-control" id="date" />
+        <input
+          type="date"
+          className="form-control"
+          id="date"
+          value={inputDate}
+          onChange={event => {
+            onInputDateChange(event.target.value);
+          }}
+        />
 
         <small id="date" className="form-text text-muted">
           The date you fed the duck.
@@ -14,7 +40,15 @@ const Form = () => (
       <div className="col-md-6">
         <label htmlFor="time">Time</label>
 
-        <input type="time" className="form-control" id="time" />
+        <input
+          type="time"
+          className="form-control"
+          id="time"
+          value={inputTime}
+          onChange={event => {
+            onInputTimeChange(event.target.value);
+          }}
+        />
 
         <small id="time" className="form-text text-muted">
           The time you fed the duck (24 hr).
@@ -26,7 +60,14 @@ const Form = () => (
       <div className="col-md-6">
         <label htmlFor="location">Where</label>
 
-        <input className="form-control" id="location" />
+        <input
+          className="form-control"
+          id="location"
+          value={inputLocation}
+          onChange={event => {
+            onInputLocationChange(event.target.value);
+          }}
+        />
 
         <small id="location" className="form-text text-muted">
           Where the ducks are fed?

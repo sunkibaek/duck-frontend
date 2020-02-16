@@ -1,7 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 import SummaryItem from "./SummaryItem";
 
-const Summary = () => (
+interface ISummaryProps {
+  date: string;
+  location: string;
+}
+
+const Summary: FC<ISummaryProps> = ({ date, location }) => (
   <aside>
     <h4 className="mb-4 text-muted">Summary</h4>
 
@@ -10,13 +15,13 @@ const Summary = () => (
         <SummaryItem
           name="Date time"
           description="When they are fed?"
-          value="2020/02/16 09:50"
+          value={date}
         />
 
         <SummaryItem
           name="Place"
           description="Where are they fed?"
-          value="Local pond"
+          value={location}
         />
 
         <SummaryItem
