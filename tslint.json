@@ -1,0 +1,10 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "jsRules": {},
+  "rules": {
+    "no-magic-numbers": true,
+    "max-file-line-count": [true, { "limit": 200 }]
+  },
+  "rulesDirectory": []
+}
