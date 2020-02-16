@@ -1,37 +1,38 @@
 import React, { FC } from "react";
 
 interface IFormProps {
-  inputDate: string;
-  onInputDateChange: (value: string) => void;
-  inputTime: string;
-  onInputTimeChange: (value: string) => void;
-  inputLocation: string;
-  onInputLocationChange: (value: string) => void;
-  inputHowMany: string;
-  onInputHowManyChange: (value: string) => void;
-  inputFoodCategory: string;
-  onInputFoodCategoryChange: (value: string) => void;
-  inputFoodSubcategory: string;
-  onInputFoodSubcategoryChange: (value: string) => void;
-  inputFoodQuantity: string;
-  onInputFoodQuantityChange: (value: string) => void;
+  date: string;
+  foodCategory: string;
+  foodQuantity: string;
+  foodSubcategory: string;
+  howMany: string;
+  location: string;
+  time: string;
+
+  onDateChange: (value: string) => void;
+  onFoodCategoryChange: (value: string) => void;
+  onFoodQuantityChange: (value: string) => void;
+  onFoodSubcategoryChange: (value: string) => void;
+  onHowManyChange: (value: string) => void;
+  onLocationChange: (value: string) => void;
+  onTimeChange: (value: string) => void;
 }
 
 const Form: FC<IFormProps> = ({
-  inputDate,
-  onInputDateChange,
-  inputTime,
-  onInputTimeChange,
-  inputLocation,
-  onInputLocationChange,
-  inputHowMany,
-  onInputHowManyChange,
-  inputFoodSubcategory,
-  onInputFoodSubcategoryChange,
-  inputFoodCategory,
-  onInputFoodCategoryChange,
-  inputFoodQuantity,
-  onInputFoodQuantityChange
+  date,
+  foodCategory,
+  foodQuantity,
+  foodSubcategory,
+  howMany,
+  location,
+  time,
+  onDateChange,
+  onFoodCategoryChange,
+  onFoodQuantityChange,
+  onFoodSubcategoryChange,
+  onHowManyChange,
+  onLocationChange,
+  onTimeChange
 }) => (
   <form>
     <div className="row mb-3">
@@ -42,9 +43,9 @@ const Form: FC<IFormProps> = ({
           type="date"
           className="form-control"
           id="date"
-          value={inputDate}
+          value={date}
           onChange={event => {
-            onInputDateChange(event.target.value);
+            onDateChange(event.target.value);
           }}
         />
 
@@ -60,9 +61,9 @@ const Form: FC<IFormProps> = ({
           type="time"
           className="form-control"
           id="time"
-          value={inputTime}
+          value={time}
           onChange={event => {
-            onInputTimeChange(event.target.value);
+            onTimeChange(event.target.value);
           }}
         />
 
@@ -79,9 +80,9 @@ const Form: FC<IFormProps> = ({
         <input
           className="form-control"
           id="location"
-          value={inputLocation}
+          value={location}
           onChange={event => {
-            onInputLocationChange(event.target.value);
+            onLocationChange(event.target.value);
           }}
         />
 
@@ -103,9 +104,9 @@ const Form: FC<IFormProps> = ({
           id="how-many"
           min={0}
           step={1}
-          value={inputHowMany}
+          value={howMany}
           onChange={event => {
-            onInputHowManyChange(event.target.value);
+            onHowManyChange(event.target.value);
           }}
         />
 
@@ -124,9 +125,9 @@ const Form: FC<IFormProps> = ({
         <input
           className="form-control"
           id="category"
-          value={inputFoodCategory}
+          value={foodCategory}
           onChange={event => {
-            onInputFoodCategoryChange(event.target.value);
+            onFoodCategoryChange(event.target.value);
           }}
         />
 
@@ -141,9 +142,9 @@ const Form: FC<IFormProps> = ({
         <input
           className="form-control"
           id="food-subcategory"
-          value={inputFoodSubcategory}
+          value={foodSubcategory}
           onChange={event => {
-            onInputFoodSubcategoryChange(event.target.value);
+            onFoodSubcategoryChange(event.target.value);
           }}
         />
 
@@ -160,9 +161,9 @@ const Form: FC<IFormProps> = ({
         <input
           className="form-control"
           id="quantity"
-          value={inputFoodQuantity}
+          value={foodQuantity}
           onChange={event => {
-            onInputFoodQuantityChange(event.target.value);
+            onFoodQuantityChange(event.target.value);
           }}
         />
 

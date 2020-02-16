@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Form from "./Form";
 import Summary from "./Summary";
 
-const dateTimeString = (inputDate: string, inputTime: string) => {
-  if (!inputDate || !inputTime) {
+const dateTimeString = (date: string, time: string) => {
+  if (!date || !time) {
     return "";
   }
 
-  return `${inputDate} ${inputTime}`;
+  return `${date} ${time}`;
 };
 
 const food = (category: string, subcategory: string) => {
@@ -53,20 +53,20 @@ const Body = () => {
         <h4 className="mb-4">Duck Feed</h4>
 
         <Form
-          inputDate={inputs.date}
-          onInputDateChange={setInput("date")}
-          inputTime={inputs.time}
-          onInputTimeChange={setInput("time")}
-          inputLocation={inputs.location}
-          onInputLocationChange={setInput("location")}
-          inputHowMany={inputs.howMany}
-          onInputHowManyChange={setInput("howMany")}
-          inputFoodCategory={inputs.foodCategory}
-          onInputFoodCategoryChange={setInput("foodCategory")}
-          inputFoodSubcategory={inputs.foodSubcategory}
-          onInputFoodSubcategoryChange={setInput("foodSubcategory")}
-          inputFoodQuantity={inputs.foodQuantity}
-          onInputFoodQuantityChange={setInput("foodQuantity")}
+          date={inputs.date}
+          foodCategory={inputs.foodCategory}
+          foodQuantity={inputs.foodQuantity}
+          foodSubcategory={inputs.foodSubcategory}
+          howMany={inputs.howMany}
+          location={inputs.location}
+          time={inputs.time}
+          onDateChange={setInput("date")}
+          onFoodCategoryChange={setInput("foodCategory")}
+          onFoodQuantityChange={setInput("foodQuantity")}
+          onFoodSubcategoryChange={setInput("foodSubcategory")}
+          onHowManyChange={setInput("howMany")}
+          onLocationChange={setInput("location")}
+          onTimeChange={setInput("time")}
         />
       </div>
 
