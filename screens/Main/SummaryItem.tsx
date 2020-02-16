@@ -12,7 +12,7 @@ const SummaryItem = ({ name, description, value }: ISummaryProps) => (
       <small className="text-muted">{description}</small>
     </div>
 
-    <span className="text-muted">{value}</span>
+    <span className="text-muted">{value === "" ? "-" : value}</span>
   </li>
 );
 
