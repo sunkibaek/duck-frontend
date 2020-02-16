@@ -3,7 +3,7 @@ import SummaryItem from "./SummaryItem";
 
 const Summary = () => (
   <aside>
-    <h4>Summary</h4>
+    <h4 className="mb-4">Summary</h4>
 
     <div className="card">
       <ul className="list-group list-group-flush">

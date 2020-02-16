@@ -5,7 +5,7 @@ import Summary from "./Summary";
 const Body = () => (
   <div className="row">
     <div className="col-md-8">
-      <h4>Duck Feed</h4>
+      <h4 className="mb-4">Duck Feed</h4>
 
       <Form />
     </div>
