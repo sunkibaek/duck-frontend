@@ -4,7 +4,8 @@
   "jsRules": {},
   "rules": {
     "no-magic-numbers": true,
-    "max-file-line-count": [true, { "limit": 200 }]
+    "max-file-line-count": [true, { "limit": 200 }],
+    "jsx-no-lambda": false
   },
   "rulesDirectory": []
 }
