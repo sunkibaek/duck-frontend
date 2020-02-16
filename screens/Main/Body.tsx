@@ -28,16 +28,18 @@ interface IInputsState {
   foodQuantity: string;
 }
 
+const INPUT_DEFAULTS = {
+  date: "",
+  time: "",
+  location: "",
+  howMany: "0",
+  foodCategory: "",
+  foodSubcategory: "",
+  foodQuantity: "0"
+};
+
 const Body = () => {
-  const [inputs, setInputs] = useState<IInputsState>({
-    date: "",
-    time: "",
-    location: "",
-    howMany: "0",
-    foodCategory: "",
-    foodSubcategory: "",
-    foodQuantity: "0"
-  });
+  const [inputs, setInputs] = useState<IInputsState>(INPUT_DEFAULTS);
 
   const setInput = (type: keyof IInputsState) => (newValue: string) => {
     if (newValue === inputs[type]) {
@@ -45,6 +47,10 @@ const Body = () => {
     }
 
     setInputs({ ...inputs, [type]: newValue });
+  };
+
+  const resetInputs = () => {
+    setInputs(INPUT_DEFAULTS);
   };
 
   return (
@@ -67,6 +73,7 @@ const Body = () => {
           onHowManyChange={setInput("howMany")}
           onLocationChange={setInput("location")}
           onTimeChange={setInput("time")}
+          onReset={resetInputs}
         />
       </div>
 

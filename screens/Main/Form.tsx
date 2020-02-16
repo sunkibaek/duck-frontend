@@ -16,6 +16,7 @@ interface IFormProps {
   onHowManyChange: (value: string) => void;
   onLocationChange: (value: string) => void;
   onTimeChange: (value: string) => void;
+  onReset: () => void;
 }
 
 const Form: FC<IFormProps> = ({
@@ -32,7 +33,8 @@ const Form: FC<IFormProps> = ({
   onFoodSubcategoryChange,
   onHowManyChange,
   onLocationChange,
-  onTimeChange
+  onTimeChange,
+  onReset
 }) => (
   <form>
     <div className="row mb-3">
@@ -175,9 +177,27 @@ const Form: FC<IFormProps> = ({
 
     <hr />
 
-    <button type="submit" className="btn btn-primary btn-lg btn-block">
-      Submit
-    </button>
+    <div className="row mb-3">
+      <div className="col-md-9">
+        <button type="submit" className="btn btn-primary btn-lg btn-block">
+          Submit
+        </button>
+      </div>
+
+      <div className="col-md-3">
+        <button
+          type="reset"
+          className="btn btn-light btn-lg btn-block"
+          onClick={event => {
+            event.preventDefault();
+
+            onReset();
+          }}
+        >
+          Reset
+        </button>
+      </div>
+    </div>
   </form>
 );
 
