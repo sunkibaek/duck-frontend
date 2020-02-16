@@ -14,15 +14,15 @@ const Summary = () => (
         />
 
         <SummaryItem
-          name="How many ducks"
-          description="How many are fed?"
-          value="20 ducks"
-        />
-
-        <SummaryItem
           name="Place"
           description="Where are they fed?"
           value="Local pond"
+        />
+
+        <SummaryItem
+          name="How many ducks"
+          description="How many are fed?"
+          value="20 ducks"
         />
 
         <SummaryItem
