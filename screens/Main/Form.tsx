@@ -7,6 +7,14 @@ interface IFormProps {
   onInputTimeChange: (value: string) => void;
   inputLocation: string;
   onInputLocationChange: (value: string) => void;
+  inputHowMany: string;
+  onInputHowManyChange: (value: string) => void;
+  inputFoodCategory: string;
+  onInputFoodCategoryChange: (value: string) => void;
+  inputFoodSubcategory: string;
+  onInputFoodSubcategoryChange: (value: string) => void;
+  inputFoodQuantity: string;
+  onInputFoodQuantityChange: (value: string) => void;
 }
 
 const Form: FC<IFormProps> = ({
@@ -15,7 +23,15 @@ const Form: FC<IFormProps> = ({
   inputTime,
   onInputTimeChange,
   inputLocation,
-  onInputLocationChange
+  onInputLocationChange,
+  inputHowMany,
+  onInputHowManyChange,
+  inputFoodSubcategory,
+  onInputFoodSubcategoryChange,
+  inputFoodCategory,
+  onInputFoodCategoryChange,
+  inputFoodQuantity,
+  onInputFoodQuantityChange
 }) => (
   <form>
     <div className="row mb-3">
@@ -87,6 +103,10 @@ const Form: FC<IFormProps> = ({
           id="how-many"
           min={0}
           step={1}
+          value={inputHowMany}
+          onChange={event => {
+            onInputHowManyChange(event.target.value);
+          }}
         />
 
         <small id="how-many" className="form-text text-muted">
@@ -101,7 +121,14 @@ const Form: FC<IFormProps> = ({
       <div className="col-md-6">
         <label htmlFor="category">Food type</label>
 
-        <input className="form-control" id="category" />
+        <input
+          className="form-control"
+          id="category"
+          value={inputFoodCategory}
+          onChange={event => {
+            onInputFoodCategoryChange(event.target.value);
+          }}
+        />
 
         <small id="category" className="form-text text-muted">
           What kind of food the ducks are fed?
@@ -109,11 +136,18 @@ const Form: FC<IFormProps> = ({
       </div>
 
       <div className="col-md-6">
-        <label htmlFor="what-food">What food</label>
+        <label htmlFor="food-subcategory">What food</label>
 
-        <input className="form-control" id="what-food" />
+        <input
+          className="form-control"
+          id="food-subcategory"
+          value={inputFoodSubcategory}
+          onChange={event => {
+            onInputFoodSubcategoryChange(event.target.value);
+          }}
+        />
 
-        <small id="what-food" className="form-text text-muted">
+        <small id="food-subcategory" className="form-text text-muted">
           What foods the ducks are fed?
         </small>
       </div>
@@ -123,7 +157,14 @@ const Form: FC<IFormProps> = ({
       <div className="col-md-6">
         <label htmlFor="quantity">Food quantity</label>
 
-        <input className="form-control" id="quantity" />
+        <input
+          className="form-control"
+          id="quantity"
+          value={inputFoodQuantity}
+          onChange={event => {
+            onInputFoodQuantityChange(event.target.value);
+          }}
+        />
 
         <small id="quantity" className="form-text text-muted">
           How much food the ducks are fed?

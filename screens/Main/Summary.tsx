@@ -4,9 +4,18 @@ import SummaryItem from "./SummaryItem";
 interface ISummaryProps {
   date: string;
   location: string;
+  howMany: string;
+  food: string;
+  foodQuantity: string;
 }
 
-const Summary: FC<ISummaryProps> = ({ date, location }) => (
+const Summary: FC<ISummaryProps> = ({
+  date,
+  location,
+  howMany,
+  food,
+  foodQuantity
+}) => (
   <aside>
     <h4 className="mb-4 text-muted">Summary</h4>
 
@@ -27,19 +36,19 @@ const Summary: FC<ISummaryProps> = ({ date, location }) => (
         <SummaryItem
           name="How many ducks"
           description="How many are fed?"
-          value="20 ducks"
+          value={`${howMany} ducks`}
         />
 
         <SummaryItem
           name="Food"
           description="What are they fed?"
-          value={"Animal - Fish"}
+          value={food}
         />
 
         <SummaryItem
           name="Food quantity"
           description="How much are they fed?"
-          value="20 boxes"
+          value={`${foodQuantity} boxes`}
         />
       </ul>
     </div>

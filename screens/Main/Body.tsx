@@ -10,17 +10,33 @@ const dateTimeString = (inputDate: string, inputTime: string) => {
   return `${inputDate} ${inputTime}`;
 };
 
+const food = (category: string, subcategory: string) => {
+  if (!category || !subcategory) {
+    return "";
+  }
+
+  return `${category} - ${subcategory}`;
+};
+
 interface IInputsState {
   date: string;
   time: string;
   location: string;
+  howMany: string;
+  foodCategory: string;
+  foodSubcategory: string;
+  foodQuantity: string;
 }
 
 const Body = () => {
   const [inputs, setInputs] = useState<IInputsState>({
     date: "",
     time: "",
-    location: ""
+    location: "",
+    howMany: "0",
+    foodCategory: "",
+    foodSubcategory: "",
+    foodQuantity: "0"
   });
 
   const setInput = (type: keyof IInputsState) => (newValue: string) => {
@@ -43,6 +59,14 @@ const Body = () => {
           onInputTimeChange={setInput("time")}
           inputLocation={inputs.location}
           onInputLocationChange={setInput("location")}
+          inputHowMany={inputs.howMany}
+          onInputHowManyChange={setInput("howMany")}
+          inputFoodCategory={inputs.foodCategory}
+          onInputFoodCategoryChange={setInput("foodCategory")}
+          inputFoodSubcategory={inputs.foodSubcategory}
+          onInputFoodSubcategoryChange={setInput("foodSubcategory")}
+          inputFoodQuantity={inputs.foodQuantity}
+          onInputFoodQuantityChange={setInput("foodQuantity")}
         />
       </div>
 
@@ -50,6 +74,9 @@ const Body = () => {
         <Summary
           date={dateTimeString(inputs.date, inputs.time)}
           location={inputs.location}
+          howMany={inputs.howMany}
+          food={food(inputs.foodCategory, inputs.foodSubcategory)}
+          foodQuantity={inputs.foodQuantity}
         />
       </div>
     </div>
