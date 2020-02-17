@@ -32,10 +32,10 @@ const INPUT_DEFAULTS = {
   date: "",
   time: "",
   location: "",
-  howMany: "0",
+  howMany: "",
   foodCategory: "",
   foodSubcategory: "",
-  foodQuantity: "0"
+  foodQuantity: ""
 };
 
 const Body = () => {
