@@ -139,18 +139,18 @@ const Form: FC<IFormProps> = ({
       </div>
 
       <div className="col-md-6">
-        <label htmlFor="food-subcategory">What food</label>
+        <label htmlFor="subcategory">What food</label>
 
         <input
           className="form-control"
-          id="food-subcategory"
+          id="subcategory"
           value={foodSubcategory}
           onChange={event => {
             onFoodSubcategoryChange(event.target.value);
           }}
         />
 
-        <small id="food-subcategory" className="form-text text-muted">
+        <small id="subcategory" className="form-text text-muted">
           What foods the ducks are fed?
         </small>
       </div>
