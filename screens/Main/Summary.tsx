@@ -22,30 +22,35 @@ const Summary: FC<ISummaryProps> = ({
     <div className="card">
       <ul className="list-group list-group-flush">
         <SummaryItem
+          id="summary-date-time"
           name="Date time"
           description="When they are fed?"
           value={date}
         />
 
         <SummaryItem
+          id="summary-place"
           name="Place"
           description="Where are they fed?"
           value={location}
         />
 
         <SummaryItem
+          id="summary-how-many"
           name="How many ducks"
           description="How many are fed?"
           value={`${howMany} ducks`}
         />
 
         <SummaryItem
+          id="summary-food"
           name="Food"
           description="What are they fed?"
           value={food}
         />
 
         <SummaryItem
+          id="summary-food-quantity"
           name="Food quantity"
           description="How much are they fed?"
           value={`${foodQuantity} boxes`}
