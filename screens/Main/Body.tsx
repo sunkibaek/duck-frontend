@@ -80,7 +80,10 @@ const Body = () => {
   return (
     <div className="row">
       <div className="col-md-8">
-        <h4 className="mb-4">Duck Feed</h4>
+        <h4 className="mb-4">
+          Duck Feed{" "}
+          <small className="text-muted">(all fields are required)</small>
+        </h4>
 
         <Form
           date={inputs.date}
