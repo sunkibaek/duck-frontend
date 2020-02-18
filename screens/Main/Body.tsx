@@ -112,6 +112,8 @@ const Body = ({ isFormSubmitting, onFormSubmit }: IBodyProps) => {
           onReset={resetInputs}
           onSubmit={() => {
             onFormSubmit(inputs);
+
+            resetInputs();
           }}
         />
       </div>
