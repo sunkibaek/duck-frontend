@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "./Form";
 import Summary from "./Summary";
+import { FoodCategory } from "../../types";
 
 const dateTimeString = (date: string, time: string) => {
   if (!date || !time) {
@@ -18,12 +19,17 @@ const food = (category: string, subcategory: string) => {
   return `${category} - ${subcategory}`;
 };
 
+interface IBodyProps {
+  isFormSubmitting: boolean;
+  onFormSubmit: (formInput: IInputsState) => void;
+}
+
 interface IInputsState {
   date: string;
   time: string;
   location: string;
   howMany: string;
-  foodCategory: string;
+  foodCategory: FoodCategory | "";
   foodSubcategory: string;
   foodQuantity: string;
 }
@@ -33,12 +39,12 @@ const INPUT_DEFAULTS = {
   time: "",
   location: "",
   howMany: "",
-  foodCategory: "",
+  foodCategory: "" as "",
   foodSubcategory: "",
   foodQuantity: ""
 };
 
-const Body = () => {
+const Body = ({ isFormSubmitting, onFormSubmit }: IBodyProps) => {
   const [inputs, setInputs] = useState<IInputsState>(INPUT_DEFAULTS);
 
   const setInput = (type: keyof IInputsState) => (newValue: string) => {
@@ -93,6 +99,7 @@ const Body = () => {
           howMany={inputs.howMany}
           isFormFilled={isFormFilled()}
           isAnyFormFilled={isAnyFormFilled()}
+          isSubmitting={isFormSubmitting}
           location={inputs.location}
           time={inputs.time}
           onDateChange={setInput("date")}
@@ -103,6 +110,9 @@ const Body = () => {
           onLocationChange={setInput("location")}
           onTimeChange={setInput("time")}
           onReset={resetInputs}
+          onSubmit={() => {
+            onFormSubmit(inputs);
+          }}
         />
       </div>
 
