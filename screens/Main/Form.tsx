@@ -54,6 +54,7 @@ const Form: FC<IFormProps> = ({
             onDateChange(event.target.value);
           }}
           required={true}
+          placeholder="yyyy-mm-dd"
         />
 
         <small id="date" className="form-text text-muted">
@@ -72,6 +73,7 @@ const Form: FC<IFormProps> = ({
           onChange={event => {
             onTimeChange(event.target.value);
           }}
+          placeholder="hh:mm"
         />
 
         <small id="time" className="form-text text-muted">
@@ -129,14 +131,18 @@ const Form: FC<IFormProps> = ({
       <div className="col-md-6">
         <label htmlFor="category">Food type</label>
 
-        <input
+        <select
           className="form-control"
           id="category"
           value={foodCategory}
           onChange={event => {
             onFoodCategoryChange(event.target.value);
           }}
-        />
+        >
+          <option />
+          <option value="ANIMAL">ANIMAL</option>
+          <option value="PLANT">PLANT</option>
+        </select>
 
         <small id="category" className="form-text text-muted">
           What kind of food the ducks are fed?
@@ -172,6 +178,10 @@ const Form: FC<IFormProps> = ({
           onChange={event => {
             onFoodQuantityChange(event.target.value);
           }}
+          type="number"
+          min={0}
+          step={1}
+          placeholder="(in boxes)"
         />
 
         <small id="quantity" className="form-text text-muted">
