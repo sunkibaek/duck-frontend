@@ -11,6 +11,8 @@ interface IInsertFeedingLogVariables {
   foodQuantity: number;
 }
 
+const LOCAL_BACKEND_URI = "http://localhost:4000";
+
 const INSERT_FEEDING_LOG = gql`
   mutation InsertFeedingLog(
     $dateTime: String!
@@ -38,7 +40,7 @@ const INSERT_FEEDING_LOG = gql`
 const GraphQL = {
   client: new ApolloClient({
     fetch: fetch as any,
-    uri: "http://localhost:4000"
+    uri: process.env.BACKEND_URI || LOCAL_BACKEND_URI
   }),
 
   insertFeedingLog: async ({
