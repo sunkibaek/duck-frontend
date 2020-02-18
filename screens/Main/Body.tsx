@@ -53,6 +53,30 @@ const Body = () => {
     setInputs(INPUT_DEFAULTS);
   };
 
+  const isFormFilled = () => {
+    return (
+      inputs.date.length > 0 &&
+      inputs.time.length > 0 &&
+      inputs.location.length > 0 &&
+      inputs.howMany.length > 0 &&
+      inputs.foodCategory.length > 0 &&
+      inputs.foodSubcategory.length > 0 &&
+      inputs.foodQuantity.length > 0
+    );
+  };
+
+  const isAnyFormFilled = () => {
+    return (
+      inputs.date.length > 0 ||
+      inputs.time.length > 0 ||
+      inputs.location.length > 0 ||
+      inputs.howMany.length > 0 ||
+      inputs.foodCategory.length > 0 ||
+      inputs.foodSubcategory.length > 0 ||
+      inputs.foodQuantity.length > 0
+    );
+  };
+
   return (
     <div className="row">
       <div className="col-md-8">
@@ -64,6 +88,8 @@ const Body = () => {
           foodQuantity={inputs.foodQuantity}
           foodSubcategory={inputs.foodSubcategory}
           howMany={inputs.howMany}
+          isFormFilled={isFormFilled()}
+          isAnyFormFilled={isAnyFormFilled()}
           location={inputs.location}
           time={inputs.time}
           onDateChange={setInput("date")}

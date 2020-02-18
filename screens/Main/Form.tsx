@@ -6,6 +6,8 @@ interface IFormProps {
   foodQuantity: string;
   foodSubcategory: string;
   howMany: string;
+  isFormFilled: boolean;
+  isAnyFormFilled: boolean;
   location: string;
   time: string;
 
@@ -25,6 +27,8 @@ const Form: FC<IFormProps> = ({
   foodQuantity,
   foodSubcategory,
   howMany,
+  isFormFilled,
+  isAnyFormFilled,
   location,
   time,
   onDateChange,
@@ -49,6 +53,7 @@ const Form: FC<IFormProps> = ({
           onChange={event => {
             onDateChange(event.target.value);
           }}
+          required={true}
         />
 
         <small id="date" className="form-text text-muted">
@@ -179,13 +184,18 @@ const Form: FC<IFormProps> = ({
 
     <div className="row mb-3">
       <div className="col-md-9">
-        <button type="submit" className="btn btn-primary btn-lg btn-block">
+        <button
+          disabled={!isFormFilled}
+          type="submit"
+          className="btn btn-primary btn-lg btn-block"
+        >
           Submit
         </button>
       </div>
 
       <div className="col-md-3">
         <button
+          disabled={!isAnyFormFilled}
           type="reset"
           className="btn btn-light btn-lg btn-block"
           onClick={event => {
